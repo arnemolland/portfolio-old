@@ -1,0 +1,166 @@
+[
+    {
+        "family": "MaterialIcons",
+        "fonts": [
+            {
+                "asset": "https://fonts.gstatic.com/s/materialicons/v42/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
+            }
+        ]
+    },
+    {
+        "family": "Helvetica",
+        "fonts": [
+            {
+                "asset": "fonts/Helvetica.ttf"
+            },
+            {
+                "asset": "fonts/Helvetica-Bold.ttf",
+                "weight": 700
+            }
+        ]
+    },
+    {
+        "family": "Barcode",
+        "fonts": [
+            {
+                "asset": "fonts/Barcode.ttf"
+            }
+        ]
+    },
+    {
+        "family": "BungeeInline",
+        "fonts": [
+            {
+                "asset": "fonts/BungeeInline.ttf"
+            }
+        ]
+    },
+    {
+        "family": "BungeeShade",
+        "fonts": [
+            {
+                "asset": "fonts/BungeeShade.ttf"
+            }
+        ]
+    },
+    {
+        "family": "CaesarDressing",
+        "fonts": [
+            {
+                "asset": "fonts/CaesarDressing.ttf"
+            }
+        ]
+    },
+    {
+        "family": "FasterOne",
+        "fonts": [
+            {
+                "asset": "fonts/FasterOne.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Frijole",
+        "fonts": [
+            {
+                "asset": "fonts/Frijole.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Zcool",
+        "fonts": [
+            {
+                "asset": "fonts/Zcool.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Fascinate",
+        "fonts": [
+            {
+                "asset": "fonts/Fascinate.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Geostar",
+        "fonts": [
+            {
+                "asset": "fonts/Geostar.ttf"
+            }
+        ]
+    },
+    {
+        "family": "MetalMania",
+        "fonts": [
+            {
+                "asset": "fonts/MetalMania.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Sancreek",
+        "fonts": [
+            {
+                "asset": "fonts/Sancreek.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Warnes",
+        "fonts": [
+            {
+                "asset": "fonts/Warnes.ttf"
+            }
+        ]
+    },
+    {
+        "family": "MajorMono",
+        "fonts": [
+            {
+                "asset": "fonts/MajorMono.ttf"
+            }
+        ]
+    },
+    {
+        "family": "FontAwesomeRegular",
+        "fonts": [
+            {
+                "asset": "fonts/FontAwesomeRegular.ttf"
+            }
+        ]
+    },
+    {
+        "family": "FontAwesomeSolid",
+        "fonts": [
+            {
+                "asset": "fonts/FontAwesomeSolid.ttf"
+            }
+        ]
+    },
+    {
+        "family": "FontAwesomeBrands",
+        "fonts": [
+            {
+                "asset": "fonts/FontAwesomeBrands.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Ramabhadra",
+        "fonts": [
+            {
+                "asset": "fonts/Ramabhadra.ttf"
+            }
+        ]
+    },
+    {
+        "family": "Teko",
+        "fonts": [
+            {
+                "asset": "fonts/Teko.ttf"
+            }
+        ]
+    }
+]
