@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Wrapper(
-      child: Scaffold(
+      largeView: Scaffold(
         body: Navbar(
           title: Text(
             'Arne Molland',
@@ -27,6 +27,32 @@ class _HomeViewState extends State<HomeView> {
           ),
           child: HeroView(),
         ),
+      ),
+      mediumView: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          centerTitle: true,
+          title: Text(
+            'Arne Molland',
+            style: Molland.titleStyle,
+          ),
+          backgroundColor: Colors.transparent,
+        ),
+        drawer: Wrapper.buildDrawer(context),
+        body: HeroView(),
+      ),
+      smallView: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          centerTitle: true,
+          title: Text(
+            'Arne Molland',
+            style: Molland.titleStyle,
+          ),
+          backgroundColor: Colors.transparent,
+        ),
+        drawer: Wrapper.buildDrawer(context),
+        body: HeroView(),
       ),
     );
   }

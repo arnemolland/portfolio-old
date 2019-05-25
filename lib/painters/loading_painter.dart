@@ -8,7 +8,13 @@ class LoadingPainter extends CustomPainter {
   final Offset offset;
   final double size;
 
-  LoadingPainter({this.titleColor, this.subtitleColor, this.offset, this.titleFont, this.subtitleFont, this.size});
+  LoadingPainter(
+      {this.titleColor,
+      this.subtitleColor,
+      this.offset,
+      this.titleFont,
+      this.subtitleFont,
+      this.size});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -34,7 +40,10 @@ class LoadingPainter extends CustomPainter {
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr);
     textPainter.layout();
-    textPainter.paint(canvas, this.offset.translate(-textPainter.width / 2, 0));
+    textPainter.paint(
+      canvas,
+      this.offset.translate(-textPainter.width / 2, 0),
+    );
   }
 
   @override

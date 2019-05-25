@@ -19,4 +19,8 @@ class RandomData {
   static get font {
     return fonts[Random().nextInt(fonts.length)];
   }
+
+  static get fontReadable {
+    return fonts.where((font) => font != 'Barcode').toList()[Random().nextInt(fonts.length-1)];
+  }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_web/material.dart';
+import 'package:portfolio/containers/wrapper.dart';
 import 'package:portfolio/data/random.dart';
 
 import 'package:portfolio/painters/loading_painter.dart';
@@ -12,7 +13,6 @@ class RandomName extends StatefulWidget {
 }
 
 class _RandomNameState extends State<RandomName> {
-  
   Timer timer;
 
   @override
@@ -31,7 +31,10 @@ class _RandomNameState extends State<RandomName> {
         offset: Offset(0, 0),
         titleColor: Colors.orange,
         subtitleColor: Colors.orange,
-        size: 128,
+        // Temporary workaround responsive sizing
+        size: Wrapper.isSmallScreen(context)
+            ? 32
+            : Wrapper.isMediumScreen(context) ? 64: 128,
       ),
     );
   }

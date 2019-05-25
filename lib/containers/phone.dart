@@ -15,7 +15,8 @@ class _PhoneViewState extends State<PhoneView> {
         return ClipRRect(
           clipBehavior: Clip.antiAlias,
           borderRadius: BorderRadius.circular(30),
-          child: widget.child);
+          child: widget.child,
+        );
       },
     );
   }

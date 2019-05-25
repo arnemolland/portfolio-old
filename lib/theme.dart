@@ -32,14 +32,26 @@ class Molland {
 
   static get randomTitle {
     return TextStyle(
-      fontSize: 28,
-      fontFamily: RandomData.font,
+      fontSize: 24,
+      fontFamily: RandomData.fontReadable,
     );
   }
 
   static get navbarLink {
     return TextStyle(
       fontSize: 16,
+    );
+  }
+
+  static get drawerLink {
+    return TextStyle(
+      fontSize: 18
+    );
+  }
+
+  static get drawerLeading {
+    return TextStyle(
+      fontSize: 24
     );
   }
 }

@@ -12,8 +12,6 @@ class Navbar extends StatefulWidget {
 }
 
 class _NavbarState extends State<Navbar> {
-  bool darkMode;
-
   @override
   void initState() {
     super.initState();

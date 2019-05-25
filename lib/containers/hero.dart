@@ -2,6 +2,7 @@ import 'package:flutter_web/material.dart';
 import 'package:portfolio/apps/string/main.dart';
 import 'package:portfolio/containers/phone.dart';
 import 'package:portfolio/containers/state_container.dart';
+import 'package:portfolio/containers/wrapper.dart';
 import 'package:portfolio/painters/phone_painter.dart';
 
 class HeroView extends StatefulWidget {
@@ -22,22 +23,23 @@ class _HeroViewState extends State<HeroView> {
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          RotatedBox(
-            quarterTurns: 1,
-            child: Row(
-              children: [
-                Icon(Icons.arrow_back),
-                Text(
-                  'scroll to resize',
-                  style: TextStyle(
-                    fontSize: 32,
-                    
+          if (Wrapper.isLargeScreen(context)) ...{
+            RotatedBox(
+              quarterTurns: 1,
+              child: Row(
+                children: [
+                  Icon(Icons.arrow_back),
+                  Text(
+                    'scroll to resize',
+                    style: TextStyle(
+                      fontSize: 32,
+                    ),
                   ),
-                ),
-                Icon(Icons.arrow_forward),
-              ],
-            ),
-          ),
+                  Icon(Icons.arrow_forward),
+                ],
+              ),
+            )
+          },
           AspectRatio(
             // iPhone X aspect ratio
             aspectRatio: 9 / 19.5,

@@ -19,7 +19,11 @@ class AppStateContainer extends StatefulWidget {
 class _AppStateContainerState extends State<AppStateContainer> {
   AppState state;
 
-  void onLightModeChanged(bool value) => setState(() => state = AppState(isLightMode: value));
+  void onLightModeChanged(bool value) =>
+      setState(() => state = AppState(isLightMode: value));
+
+  void toggleDarkMode() =>
+      setState(() => state = AppState(isLightMode: !state.isLightMode));
 
   @override
   void initState() {
@@ -38,7 +42,8 @@ class _AppStateContainerState extends State<AppStateContainer> {
 
 class _InheritedStateContainer extends InheritedWidget {
   final _AppStateContainerState data;
-  _InheritedStateContainer({Key key, @required this.data, @required Widget child})
+  _InheritedStateContainer(
+      {Key key, @required this.data, @required Widget child})
       : super(key: key, child: child);
 
   @override

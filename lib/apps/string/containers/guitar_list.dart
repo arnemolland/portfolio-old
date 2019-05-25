@@ -12,14 +12,26 @@ class _GuitarListState extends State<GuitarList> {
   PageController _controller;
   double _currentPageOffset;
   final guitars = [
-    Guitar(),
+    Guitar(
+      brand: 'Fender',
+      model: 'Telecaster Deluxe Rosewood',
+      image: 'images/guitars/telecaster.png'
+    ),
     Guitar(
       brand: 'Fender',
       model: 'Parallel Universe Stratocaster',
       image: 'images/guitars/stratocaster.png'
     ),
-    Guitar(),
-    Guitar(),
+    Guitar(
+      brand: 'Gibson',
+      model: 'Les Paul Standard 70\'s',
+      image: 'images/guitars/lespaul.png' 
+    ),
+    Guitar(
+      brand: 'D\'Angelico',
+      model: 'Deluxe Atlantic Natural',
+      image: 'images/guitars/dangelico.png'
+    ),
   ];
 
   @override
