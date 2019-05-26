@@ -1,5 +1,5 @@
 import 'package:flutter_web/material.dart';
-import 'package:portfolio/apps/string/guitars.dart';
+import 'package:portfolio/apps/string/home.dart';
 
 class StringApp extends StatelessWidget {
   const StringApp({Key key}) : super(key: key);
@@ -8,7 +8,7 @@ class StringApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: stringTheme,
-      child: GuitarsView(),
+      child: HomeView(),
     );
   }
 

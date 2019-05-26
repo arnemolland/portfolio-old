@@ -14,39 +14,18 @@ class _ContactViewState extends State<ContactView> {
   Widget build(BuildContext context) {
     return Wrapper(
       largeView: Scaffold(
-        body: Navbar(
-          title: Text(
-            'Contact',
-            style: Molland.titleStyle,
-          ),
-          child: Center(
-            child: Text('Contact'),
-          ),
+        appBar: Wrapper.buildAppBar(context, title: 'Contact'),
+        body: Center(
+          child: Text('Contact'),
         ),
       ),
       mediumView: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            'Contact',
-            style: Molland.titleStyle,
-          ),
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: Wrapper.buildAppBar(context, title: 'Contact'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(child: Text('Contact')),
       ),
       smallView: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            'Contact',
-            style: Molland.titleStyle,
-          ),
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: Wrapper.buildAppBar(context, title: 'Contact'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(
           child: Text('Contact'),

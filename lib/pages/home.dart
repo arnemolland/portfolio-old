@@ -1,7 +1,9 @@
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/containers/hero.dart';
 import 'package:portfolio/containers/navbar.dart';
+import 'package:portfolio/containers/state_container.dart';
 import 'package:portfolio/containers/wrapper.dart';
+import 'package:portfolio/routes.dart';
 import 'package:portfolio/theme.dart';
 
 class HomeView extends StatefulWidget {
@@ -20,37 +22,16 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Wrapper(
       largeView: Scaffold(
-        body: Navbar(
-          title: Text(
-            'Arne Molland',
-            style: Molland.titleStyle,
-          ),
-          child: HeroView(),
-        ),
+        appBar: Wrapper.buildAppBar(context, title: 'Arne Molland'),
+        body: HeroView(),
       ),
       mediumView: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            'Arne Molland',
-            style: Molland.titleStyle,
-          ),
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: Wrapper.buildAppBar(context, title: 'Arne Molland'),
         drawer: Wrapper.buildDrawer(context),
         body: HeroView(),
       ),
       smallView: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          centerTitle: true,
-          title: Text(
-            'Arne Molland',
-            style: Molland.titleStyle,
-          ),
-          backgroundColor: Colors.transparent,
-        ),
+        appBar: Wrapper.buildAppBar(context, title: 'Arne Molland'),
         drawer: Wrapper.buildDrawer(context),
         body: HeroView(),
       ),

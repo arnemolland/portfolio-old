@@ -19,50 +19,39 @@ class _HeroViewState extends State<HeroView> {
         top: 100,
         bottom: 50,
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          if (Wrapper.isLargeScreen(context)) ...{
-            RotatedBox(
-              quarterTurns: 1,
-              child: Row(
-                children: [
-                  Icon(Icons.arrow_back),
-                  Text(
-                    'scroll to resize',
-                    style: TextStyle(
-                      fontSize: 32,
-                    ),
-                  ),
-                  Icon(Icons.arrow_forward),
-                ],
+      child: Center(
+        child: AspectRatio(
+          // iPhone X aspect ratio
+          aspectRatio: 9 / 19.5,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: CustomPaint(
+              foregroundPainter: PhonePainter(
+                strokeWidth: 10,
+                color: AppStateContainer.of(context).state.isLightMode
+                    ? Colors.black
+                    : Colors.white,
               ),
-            )
-          },
-          AspectRatio(
-            // iPhone X aspect ratio
-            aspectRatio: 9 / 19.5,
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              child: CustomPaint(
-                foregroundPainter: PhonePainter(
-                  strokeWidth: 10,
-                  color: AppStateContainer.of(context).state.isLightMode
-                      ? Colors.black
-                      : Colors.white,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10 / 2),
-                  child: PhoneView(
-                    child: StringApp(),
-                  ),
+              child: Padding(
+                // Add padding when frame is drawn
+                padding: const EdgeInsets.all(0),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    if(constraints.maxWidth < 175) {
+                      return Wrapper.tooSmallView();
+                    } else if (constraints.maxHeight < 175) {
+                      return Wrapper.tooSmallView();
+                    }
+                    return PhoneView(
+                      child: StringApp(),
+                    );
+                  },
                 ),
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }

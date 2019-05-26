@@ -1,17 +1,32 @@
 import 'package:flutter_web/material.dart';
-import 'package:flutter_web/gestures.dart';
 import 'package:portfolio/containers/state_container.dart';
-import 'package:portfolio/painters/mouse_painter.dart';
 import 'package:portfolio/routes.dart';
 import 'package:portfolio/theme.dart';
 
-class Wrapper extends StatefulWidget {
+class Wrapper extends StatelessWidget {
   final Widget largeView;
   final Widget mediumView;
   final Widget smallView;
 
   Wrapper({Key key, this.largeView, this.mediumView, this.smallView})
       : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (MediaQuery.of(context).size.aspectRatio < 0.5) {
+          return Wrapper.tooTallView();
+        } else if (constraints.maxWidth < 1200 && constraints.maxWidth > 800) {
+          return mediumView ?? largeView;
+        } else if (constraints.maxWidth > 800) {
+          return largeView;
+        } else {
+          return smallView ?? largeView;
+        }
+      },
+    );
+  }
 
   static bool isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width < 800;
@@ -83,78 +98,95 @@ class Wrapper extends StatefulWidget {
     );
   }
 
-  _WrapperState createState() => _WrapperState();
-}
-
-class _WrapperState extends State<Wrapper> with TickerProviderStateMixin {
-  Offset _mousePosition;
-  AnimationController _animationController;
-  Animation<double> _mouseScaleAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 250),
-    );
-    _mouseScaleAnimation = Tween<double>(begin: 20, end: 50).animate(
-      CurvedAnimation(
-        parent: _animationController,
-        curve: Interval(
-          0.000,
-          1.000,
-          curve: Curves.ease,
-        ),
-      )..addListener(() {
-          setState(() {});
-        }),
-    );
-  }
-
-  void _updatePosition(PointerMoveEvent event) {
-    setState(() => _mousePosition = event.position);
-  }
-
-  void _animateMouseClick(PointerDownEvent event) {
-    setState(() => _mousePosition = event.position);
-    _animationController.forward().then((_) => _animationController.reverse());
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Listener(
-      onPointerMove: _updatePosition,
-      onPointerDown: _animateMouseClick,
-      child: CustomPaint(
-        foregroundPainter: MousePainter(_mousePosition,
-            color: Theme.of(context).accentColor,
-            radius: _mouseScaleAnimation.value),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            if (MediaQuery.of(context).size.aspectRatio < 0.4) {
-              return Material(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Center(
-                    child: Text(
-                      'Your browser is too tall. To fix it, make it wider.',
-                      style: Molland.randomTitle,
-                    ),
-                  ),
-                ),
-              );
-            } else if (constraints.maxWidth < 1200 &&
-                constraints.maxWidth > 800) {
-              return widget.mediumView ?? widget.largeView;
-            } else if (constraints.maxWidth > 800) {
-              return widget.largeView;
-            } else {
-              return widget.smallView ?? widget.largeView;
-            }
-          },
+  static Widget tooTallView() {
+    return Material(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(
+            'Your browser is too tall. To fix it, make it wider.',
+            style: Molland.randomTitle,
+          ),
         ),
       ),
+    );
+  }
+
+  static Widget tooWideView() {
+    return Material(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(
+            'Your browser is too wide. To fix it, make it taller.',
+            style: Molland.randomTitle,
+          ),
+        ),
+      ),
+    );
+  }
+
+  static Widget tooSmallView() {
+    return Material(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(
+            'Your browser is too small. To fix it, make it bigger.',
+            style: Molland.randomTitle,
+          ),
+        ),
+      ),
+    );
+  }
+
+  static AppBar buildAppBar(BuildContext context, {String title}) {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Theme.of(context).canvasColor,
+      centerTitle: true,
+      title: Text(
+        title,
+        style: Molland.titleStyle,
+      ),
+      leading: Switch(
+        inactiveThumbColor: Molland.darkMode.accentColor,
+        inactiveTrackColor: Molland.darkMode.accentColor.shade900,
+        value: AppStateContainer.of(context).state.isLightMode,
+        onChanged: (value) {
+          AppStateContainer.of(context).onLightModeChanged(value);
+        },
+      ),
+      actions: [
+        FlatButton(
+          child: Text(
+            'Home',
+            style: Molland.navbarLink,
+          ),
+          onPressed: () => title == 'Arne Molland' ? null : Navigator.pushNamed(context, Routes.home),
+        ),
+        FlatButton(
+          child: Text(
+            'About',
+            style: Molland.navbarLink,
+          ),
+          onPressed: () => title == 'About' ? null : Navigator.pushNamed(context, Routes.about),
+        ),
+        FlatButton(
+          child: Text(
+            'Work',
+            style: Molland.navbarLink,
+          ),
+          onPressed: () => title == 'Work' ? null : Navigator.pushNamed(context, Routes.work),
+        ),
+        FlatButton(
+          child: Text(
+            'Contact',
+            style: Molland.navbarLink,
+          ),
+          onPressed: () => title == 'Contact' ? null : Navigator.pushNamed(context, Routes.contact),
+        ),
+      ],
     );
   }
 }
