@@ -163,28 +163,28 @@ class Wrapper extends StatelessWidget {
             'Home',
             style: Molland.navbarLink,
           ),
-          onPressed: () => title == 'Arne Molland' ? null : Navigator.pushNamed(context, Routes.home),
+          onPressed: () => title == 'Arne Molland' ? null : Navigator.pushReplacementNamed(context, Routes.home),
         ),
         FlatButton(
           child: Text(
             'About',
             style: Molland.navbarLink,
           ),
-          onPressed: () => title == 'About' ? null : Navigator.pushNamed(context, Routes.about),
+          onPressed: () => title == 'About' ? null : Navigator.pushReplacementNamed(context, Routes.about),
         ),
         FlatButton(
           child: Text(
             'Work',
             style: Molland.navbarLink,
           ),
-          onPressed: () => title == 'Work' ? null : Navigator.pushNamed(context, Routes.work),
+          onPressed: () => title == 'Work' ? null : Navigator.pushReplacementNamed(context, Routes.work),
         ),
         FlatButton(
           child: Text(
             'Contact',
             style: Molland.navbarLink,
           ),
-          onPressed: () => title == 'Contact' ? null : Navigator.pushNamed(context, Routes.contact),
+          onPressed: () => title == 'Contact' ? null : Navigator.pushReplacementNamed(context, Routes.contact),
         ),
       ],
     );
