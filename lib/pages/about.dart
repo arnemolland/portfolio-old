@@ -18,12 +18,12 @@ class _AboutViewState extends State<AboutView> {
         ),
       ),
       mediumView: Scaffold(
-        appBar: Wrapper.buildAppBar(context, title: 'About'),
+        appBar: Wrapper.buildMobileAppBar(context, title: 'About'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(child: Text('About')),
       ),
       smallView: Scaffold(
-        appBar: Wrapper.buildAppBar(context, title: 'About'),
+        appBar: Wrapper.buildMobileAppBar(context, title: 'About'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(
           child: Text('About'),

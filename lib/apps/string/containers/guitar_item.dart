@@ -47,8 +47,8 @@ class _GuitarItemState extends State<GuitarItem> {
                   style: TextStyle(
                     fontFamily: 'Teko',
                     fontSize: Wrapper.isLargeScreen(context)
-                        ? 18
-                        : Wrapper.isMediumScreen(context) ? 16 : 14,
+                        ? 22
+                        : Wrapper.isMediumScreen(context) ? 20 : 18,
                     height: 0.9,
                   ),
                 ),
@@ -101,7 +101,7 @@ class _GuitarItemState extends State<GuitarItem> {
                   alignment: Alignment(0, -1.0),
                   child: Image.asset(
                     widget.guitar.image,
-                    height: MediaQuery.of(context).size.height/1.5
+                    height: MediaQuery.of(context).size.aspectRatio < 1 ? MediaQuery.of(context).size.height/1.75 : MediaQuery.of(context).size.height/1.5
                   ),
                 ),
               ),

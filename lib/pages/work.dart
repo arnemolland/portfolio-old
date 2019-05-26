@@ -13,6 +13,19 @@ class _WorkViewState extends State<WorkView> {
     return Wrapper(
       largeView: Scaffold(
         appBar: Wrapper.buildAppBar(context, title: 'Work'),
+        body: Center(
+          child: Text('Work'),
+        ),
+      ),
+      mediumView: Scaffold(
+        appBar: Wrapper.buildMobileAppBar(context, title: 'Work'),
+        drawer: Wrapper.buildDrawer(context),
+        body: Center(
+          child: Text('Work'),
+        ),
+      ),
+      smallView: Scaffold(
+        appBar: Wrapper.buildMobileAppBar(context, title: 'Work'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(
           child: Text('Work'),

@@ -26,12 +26,12 @@ class _HomeViewState extends State<HomeView> {
         body: HeroView(),
       ),
       mediumView: Scaffold(
-        appBar: Wrapper.buildAppBar(context, title: 'Arne Molland'),
+        appBar: Wrapper.buildMobileAppBar(context, title: 'Arne Molland'),
         drawer: Wrapper.buildDrawer(context),
         body: HeroView(),
       ),
       smallView: Scaffold(
-        appBar: Wrapper.buildAppBar(context, title: 'Arne Molland'),
+        appBar: Wrapper.buildMobileAppBar(context, title: 'Arne Molland'),
         drawer: Wrapper.buildDrawer(context),
         body: HeroView(),
       ),

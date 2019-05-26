@@ -4,6 +4,7 @@ import 'package:portfolio/apps/string/containers/dots.dart';
 import 'package:portfolio/apps/string/containers/guitar_list.dart';
 import 'package:portfolio/apps/string/containers/sold_out.dart';
 import 'package:portfolio/apps/string/containers/zigzag.dart';
+import 'package:portfolio/containers/wrapper.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key}) : super(key: key);
@@ -15,9 +16,6 @@ class _HomeViewState extends State<HomeView> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   Widget _currentView;
   String _currentTitle;
-  final drawerTitleStyle = TextStyle(fontSize: 32, fontFamily: 'BungeeShade');
-  final drawerSubtitleStyle =
-      TextStyle(fontSize: 14, fontFamily: 'BungeeInline');
 
   @override
   void initState() {
@@ -28,6 +26,16 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    var drawerTitleStyle = TextStyle(
+        fontSize: Wrapper.isLargeScreen(context)
+            ? 32
+            : Wrapper.isMediumScreen(context) ? 28 : 24,
+        fontFamily: 'BungeeShade');
+    var drawerSubtitleStyle = TextStyle(
+        fontSize: Wrapper.isLargeScreen(context)
+            ? 14
+            : Wrapper.isMediumScreen(context) ? 12 : 10,
+        fontFamily: 'BungeeInline');
     return DottedWrapper(
       child: Scaffold(
         key: _scaffoldKey,
@@ -60,8 +68,25 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   Expanded(
                     child: ListView(
-                      padding: EdgeInsets.only(top: 100),
+                      padding: EdgeInsets.only(top: 50),
                       children: [
+                        ListTile(
+                          title: Text(
+                            'Close',
+                            style: TextStyle(
+                              fontFamily: 'MetalMania',
+                              fontSize: 32,
+                            ),
+                          ),
+                          trailing: Text(
+                            'x',
+                            style: TextStyle(
+                              fontFamily: 'MetalMania',
+                              fontSize: 32,
+                            ),
+                          ),
+                          onTap: () => Navigator.pop(context),
+                        ),
                         ListTile(
                           title: Text('CART', style: drawerTitleStyle),
                           subtitle: Text('Your precious instruments-to-be',

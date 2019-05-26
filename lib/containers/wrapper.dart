@@ -15,7 +15,7 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (MediaQuery.of(context).size.aspectRatio < 0.5) {
+        if (MediaQuery.of(context).size.aspectRatio < 0.3) {
           return Wrapper.tooTallView();
         } else if (constraints.maxWidth < 1200 && constraints.maxWidth > 800) {
           return mediumView ?? largeView;
@@ -187,6 +187,18 @@ class Wrapper extends StatelessWidget {
           onPressed: () => title == 'Contact' ? null : Navigator.pushNamed(context, Routes.contact),
         ),
       ],
+    );
+  }
+
+  static AppBar buildMobileAppBar(BuildContext context, {String title}) {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Theme.of(context).canvasColor,
+      centerTitle: true,
+      title: Text(
+        title,
+        style: Molland.titleStyle,
+      ),
     );
   }
 }

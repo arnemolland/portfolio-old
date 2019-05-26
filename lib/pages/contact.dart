@@ -20,12 +20,12 @@ class _ContactViewState extends State<ContactView> {
         ),
       ),
       mediumView: Scaffold(
-        appBar: Wrapper.buildAppBar(context, title: 'Contact'),
+        appBar: Wrapper.buildMobileAppBar(context, title: 'Contact'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(child: Text('Contact')),
       ),
       smallView: Scaffold(
-        appBar: Wrapper.buildAppBar(context, title: 'Contact'),
+        appBar: Wrapper.buildMobileAppBar(context, title: 'Contact'),
         drawer: Wrapper.buildDrawer(context),
         body: Center(
           child: Text('Contact'),
