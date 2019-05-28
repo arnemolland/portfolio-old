@@ -5,6 +5,7 @@ import 'package:portfolio/containers/wrapper.dart';
 import 'package:portfolio/data/random.dart';
 
 import 'package:portfolio/painters/loading_painter.dart';
+import 'package:portfolio/theme.dart';
 
 class RandomName extends StatefulWidget {
   RandomName({Key key}) : super(key: key);
@@ -18,8 +19,8 @@ class _RandomNameState extends State<RandomName> {
   @override
   void initState() {
     super.initState();
-    timer =
-        Timer.periodic(Duration(milliseconds: 125), (timer) => setState(() {}));
+    timer = Timer.periodic(Duration(milliseconds: 125),
+        (timer) => mounted ? setState(() {}) : null);
   }
 
   @override
@@ -32,9 +33,7 @@ class _RandomNameState extends State<RandomName> {
         titleColor: Colors.orange,
         subtitleColor: Colors.orange,
         // Temporary workaround responsive sizing
-        size: Wrapper.isSmallScreen(context)
-            ? 32
-            : Wrapper.isMediumScreen(context) ? 64: 128,
+        size: Molland.adaptiveFontSize(context, 128, 64, 32),
       ),
     );
   }
