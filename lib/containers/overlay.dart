@@ -35,7 +35,13 @@ class _MouseOverlayState extends State<MouseOverlay> with TickerProviderStateMix
     );
   }
 
-  void _updatePosition(PointerMoveEvent event) {
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  void _updatePosition(PointerEvent event) {
     setState(() => _mousePosition = event.position);
   }
 

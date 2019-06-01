@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:portfolio/apps/california/main.dart';
 import 'package:portfolio/apps/string/main.dart';
 import 'package:portfolio/containers/phone.dart';
 import 'package:portfolio/containers/state_container.dart';
@@ -12,6 +13,14 @@ class HeroView extends StatefulWidget {
 }
 
 class _HeroViewState extends State<HeroView> {
+  PageController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,39 +28,44 @@ class _HeroViewState extends State<HeroView> {
         top: 100,
         bottom: 50,
       ),
-      child: Center(
-        child: AspectRatio(
-          // iPhone X aspect ratio
-          aspectRatio: 9 / 19.5,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: CustomPaint(
-              foregroundPainter: PhonePainter(
-                strokeWidth: 10,
-                color: AppStateContainer.of(context).state.isLightMode
-                    ? Colors.black
-                    : Colors.white,
-              ),
-              child: Padding(
-                // Add padding when frame is drawn
-                padding: const EdgeInsets.all(0),
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    if(constraints.maxWidth < 175) {
-                      return Wrapper.tooSmallView();
-                    } else if (constraints.maxHeight < 175) {
-                      return Wrapper.tooSmallView();
-                    }
-                    return PhoneView(
-                      child: StringApp(),
-                    );
-                  },
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          PageView(
+            controller: _controller,
+            children: [
+              Center(
+                child: PhoneView(
+                  child: StringApp(),
                 ),
               ),
-            ),
+              Center(
+                child: PhoneView(
+                  child: CaliforniaApp(),
+                ),
+              ),
+            ],
           ),
-        ),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                FlatButton.icon(
+                    icon: Icon(Icons.arrow_left),
+                    label: Text('L'),
+                    onPressed: () {
+                      _controller.previousPage(
+                          duration: Duration(seconds: 1), curve: Curves.ease);
+                    }),
+                FlatButton.icon(
+                    icon: Icon(Icons.arrow_right),
+                    label: Text('R'),
+                    onPressed: () {
+                      _controller.nextPage(
+                          duration: Duration(seconds: 1), curve: Curves.ease);
+                    }),
+              ]),
+        ],
       ),
     );
   }

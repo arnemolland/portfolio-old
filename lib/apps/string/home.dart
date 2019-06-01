@@ -5,6 +5,7 @@ import 'package:portfolio/apps/string/containers/guitar_list.dart';
 import 'package:portfolio/apps/string/containers/sold_out.dart';
 import 'package:portfolio/apps/string/containers/zigzag.dart';
 import 'package:portfolio/containers/wrapper.dart';
+import 'package:portfolio/theme.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key}) : super(key: key);
@@ -27,14 +28,10 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     var drawerTitleStyle = TextStyle(
-        fontSize: Wrapper.isLargeScreen(context)
-            ? 32
-            : Wrapper.isMediumScreen(context) ? 28 : 24,
+        fontSize: Molland.adaptiveFontSize(context, 32, 28, 24),
         fontFamily: 'BungeeShade');
     var drawerSubtitleStyle = TextStyle(
-        fontSize: Wrapper.isLargeScreen(context)
-            ? 14
-            : Wrapper.isMediumScreen(context) ? 12 : 10,
+        fontSize: Molland.adaptiveFontSize(context, 14, 12, 10),
         fontFamily: 'BungeeInline');
     return DottedWrapper(
       child: Scaffold(
@@ -64,100 +61,94 @@ class _HomeViewState extends State<HomeView> {
           child: ZigzagWrapper(
             child: Container(
               color: Theme.of(context).canvasColor.withOpacity(0.95),
-              child: Column(
+              child: ListView(
+                physics: BouncingScrollPhysics(),
+                padding: EdgeInsets.only(top: 50),
                 children: [
-                  Expanded(
-                    child: ListView(
-                      padding: EdgeInsets.only(top: 50),
-                      children: [
-                        ListTile(
-                          title: Text(
-                            'Close',
-                            style: TextStyle(
-                              fontFamily: 'MetalMania',
-                              fontSize: 32,
-                            ),
-                          ),
-                          trailing: Text(
-                            'x',
-                            style: TextStyle(
-                              fontFamily: 'MetalMania',
-                              fontSize: 32,
-                            ),
-                          ),
-                          onTap: () => Navigator.pop(context),
-                        ),
-                        ListTile(
-                          title: Text('CART', style: drawerTitleStyle),
-                          subtitle: Text('Your precious instruments-to-be',
-                              style: drawerSubtitleStyle),
-                          trailing: Icon(Icons.shopping_cart),
-                        ),
-                        ListTile(
-                          title: Text(
-                            'GUITARS',
-                            style: drawerTitleStyle,
-                          ),
-                          subtitle: Text(
-                            'If you like it, you should put a string on it',
-                            style: drawerSubtitleStyle,
-                          ),
-                          onTap: () =>
-                              setState(() => _currentView = GuitarList()),
-                        ),
-                        ListTile(
-                          title: Text(
-                            'BASSES',
-                            style: drawerTitleStyle,
-                          ),
-                          subtitle: Text(
-                            'Your band already have guitarists?',
-                            style: drawerSubtitleStyle,
-                          ),
-                          onTap: () => setState(
-                                () {
-                                  _currentTitle = 'OH NO!';
-                                  _currentView = SoldOutView();
-                                },
-                              ),
-                        ),
-                        ListTile(
-                          title: Text(
-                            'DRUMS',
-                            style: drawerTitleStyle,
-                          ),
-                          subtitle: Text(
-                            'And God said, let there be drummers',
-                            style: drawerSubtitleStyle,
-                          ),
-                          onTap: () => setState(
-                                () {
-                                  _currentTitle = 'FRICK!';
-                                  _currentView = SoldOutView();
-                                },
-                              ),
-                        ),
-                        ListTile(
-                          title: Text(
-                            'FLUTES',
-                            style: drawerTitleStyle,
-                          ),
-                          subtitle: Text(
-                            'Tone holes are like the infinity stones of music',
-                            style: drawerSubtitleStyle,
-                          ),
-                          onTap: () => setState(
-                                () {
-                                  _currentTitle = 'HECK!';
-                                  _currentView = SoldOutView();
-                                },
-                              ),
-                        ),
-                      ],
+                  ListTile(
+                    title: Text(
+                      'Close',
+                      style: TextStyle(
+                        fontFamily: 'MetalMania',
+                        fontSize: 32,
+                      ),
                     ),
+                    trailing: Text(
+                      'x',
+                      style: TextStyle(
+                        fontFamily: 'MetalMania',
+                        fontSize: 32,
+                      ),
+                    ),
+                    onTap: () => Navigator.pop(context),
+                  ),
+                  ListTile(
+                    title: Text('CART', style: drawerTitleStyle),
+                    subtitle: Text('Your precious instruments-to-be',
+                        style: drawerSubtitleStyle),
+                    trailing: Icon(Icons.shopping_cart),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'GUITARS',
+                      style: drawerTitleStyle,
+                    ),
+                    subtitle: Text(
+                      'If you like it, you should put a string on it',
+                      style: drawerSubtitleStyle,
+                    ),
+                    onTap: () => setState(() => _currentView = GuitarList()),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'BASSES',
+                      style: drawerTitleStyle,
+                    ),
+                    subtitle: Text(
+                      'Your band already have guitarists?',
+                      style: drawerSubtitleStyle,
+                    ),
+                    onTap: () => setState(
+                          () {
+                            _currentTitle = 'OH NO!';
+                            _currentView = SoldOutView();
+                          },
+                        ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'DRUMS',
+                      style: drawerTitleStyle,
+                    ),
+                    subtitle: Text(
+                      'And God said, let there be drummers',
+                      style: drawerSubtitleStyle,
+                    ),
+                    onTap: () => setState(
+                          () {
+                            _currentTitle = 'FRICK!';
+                            _currentView = SoldOutView();
+                          },
+                        ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'FLUTES',
+                      style: drawerTitleStyle,
+                    ),
+                    subtitle: Text(
+                      'Tone holes are like the infinity stones of music',
+                      style: drawerSubtitleStyle,
+                    ),
+                    onTap: () => setState(
+                          () {
+                            _currentTitle = 'HECK!';
+                            _currentView = SoldOutView();
+                          },
+                        ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 25),
+                    padding: EdgeInsets.only(bottom: 5),
                     child: BrandBlock(),
                   ),
                 ],

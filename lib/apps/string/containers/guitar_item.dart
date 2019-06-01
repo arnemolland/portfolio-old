@@ -4,6 +4,7 @@ import 'package:flutter_web/material.dart';
 import 'package:portfolio/apps/string/containers/guitar_modal.dart';
 import 'package:portfolio/apps/string/data/guitar.dart';
 import 'package:portfolio/containers/wrapper.dart';
+import 'package:portfolio/theme.dart';
 
 class GuitarItem extends StatefulWidget {
   final Guitar guitar;
@@ -46,21 +47,11 @@ class _GuitarItemState extends State<GuitarItem> {
                   ),
                   style: TextStyle(
                     fontFamily: 'Teko',
-                    fontSize: Wrapper.isLargeScreen(context)
-                        ? 22
-                        : Wrapper.isMediumScreen(context) ? 20 : 18,
+                    fontSize: Molland.adaptiveFontSize(context, 22, 20, 18),
                     height: 0.9,
                   ),
                 ),
-                FlatButton.icon(
-                  label: Text(
-                    'Spec',
-                    style: TextStyle(
-                        fontFamily: 'Teko',
-                        fontSize: Wrapper.isLargeScreen(context)
-                            ? 18
-                            : Wrapper.isMediumScreen(context) ? 16 : 14),
-                  ),
+                IconButton(
                   icon: Icon(
                     Icons.arrow_drop_up,
                   ),
@@ -85,23 +76,33 @@ class _GuitarItemState extends State<GuitarItem> {
                 child: Text(
                   widget.guitar.brand.toUpperCase(),
                   style: TextStyle(
-                    fontSize: Wrapper.isLargeScreen(context)
-                        ? 91
-                        : Wrapper.isMediumScreen(context) ? 78 : 76,
-                    fontFamily: 'Teko',
-                    color: Theme.of(context).textTheme.display1.color.withOpacity(0.7)
-                  ),
+                      fontSize: Molland.adaptiveFontSize(context, 91, 78, 76),
+                      fontFamily: 'Teko',
+                      color: Theme.of(context)
+                          .textTheme
+                          .display1
+                          .color
+                          .withOpacity(0.7)),
                 ),
               ),
             ),
             Transform.translate(
               offset: Offset(32 * gauss, 0),
               child: Container(
-                 child: Align(
+                child: Align(
                   alignment: Alignment(0, -1.0),
-                  child: Image.asset(
-                    widget.guitar.image,
-                    height: MediaQuery.of(context).size.aspectRatio < 1 ? MediaQuery.of(context).size.height/1.75 : MediaQuery.of(context).size.height/1.5
+                  child: GestureDetector(
+                    child: Image.asset(
+                      widget.guitar.image,
+                      height: MediaQuery.of(context).size.aspectRatio < 1
+                          ? MediaQuery.of(context).size.height / 2
+                          : MediaQuery.of(context).size.height / 1.75,
+                    ),
+                    onTapUp: (details) => Scaffold.of(context).showBottomSheet(
+                          (context) => GuitarModal(
+                                guitar: widget.guitar,
+                              ),
+                        ),
                   ),
                 ),
               ),

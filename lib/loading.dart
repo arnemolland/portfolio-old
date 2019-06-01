@@ -7,12 +7,15 @@ import 'dart:html';
 import 'package:portfolio/playground/name.dart';
 
 class LoadingView extends StatefulWidget {
-  LoadingView({Key key}) : super(key: key);
+  String s;
+  String t;
+  LoadingView({Key key, this.t}) : super(key: key);
 
   _LoadingViewState createState() => _LoadingViewState();
 }
 
-class _LoadingViewState extends State<LoadingView> with TickerProviderStateMixin {
+class _LoadingViewState extends State<LoadingView>
+    with TickerProviderStateMixin {
   AnimationController _controller;
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/containers/wrapper.dart';
+import 'package:portfolio/theme.dart';
 
 class SoldOutView extends StatelessWidget {
   const SoldOutView({Key key}) : super(key: key);
@@ -16,18 +17,14 @@ class SoldOutView extends StatelessWidget {
                 text: 'OUT OF STOCK\n',
                 style: TextStyle(
                   fontFamily: 'BungeeShade',
-                  fontSize: Wrapper.isLargeScreen(context)
-                      ? 64
-                      : Wrapper.isMediumScreen(context) ? 32 : 20,
+                  fontSize: Molland.adaptiveFontSize(context, 48, 24, 18),
                 ),
               ),
               TextSpan(
                 text: 'Damn.\n Looks like we\'re sold out.',
                 style: TextStyle(
                   fontFamily: 'BungeeInline',
-                  fontSize: Wrapper.isLargeScreen(context)
-                      ? 24
-                      : Wrapper.isMediumScreen(context) ? 16 : 12,
+                  fontSize: Molland.adaptiveFontSize(context, 22, 16, 12),
                 ),
               ),
             ],

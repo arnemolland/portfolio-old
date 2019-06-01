@@ -1,11 +1,8 @@
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/containers/overlay.dart';
 import 'package:portfolio/containers/state_container.dart';
-import 'package:portfolio/pages/about.dart';
-import 'package:portfolio/pages/contact.dart';
-import 'package:portfolio/pages/home.dart';
+import 'package:portfolio/containers/wrapper.dart';
 import 'package:portfolio/loading.dart';
-import 'package:portfolio/pages/work.dart';
 import 'package:portfolio/routes.dart';
 import 'package:portfolio/theme.dart';
 
@@ -31,11 +28,8 @@ class Portfolio extends StatelessWidget {
             : Molland.darkMode,
         initialRoute: Routes.loading,
         routes: {
-          Routes.home: (context) => HomeView(),
+          Routes.home: (context) => Wrapper(),
           Routes.loading: (context) => LoadingView(),
-          Routes.about: (context) => AboutView(),
-          Routes.work: (context) => WorkView(),
-          Routes.contact: (context) => ContactView(),
         },
       ),
     );
