@@ -9,7 +9,7 @@ class DottedWrapper extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/dots.png'),
+          image: AssetImage('images/string/dots.png'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Theme.of(context).primaryColor,

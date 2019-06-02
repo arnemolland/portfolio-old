@@ -162,5 +162,37 @@
                 "asset": "fonts/Teko.ttf"
             }
         ]
+    },
+    {
+        "family": "PTSans",
+        "fonts": [
+            {
+                "asset": "fonts/PTSans.ttf"
+            }
+        ]
+    },
+    {
+        "family": "BreeSerif",
+        "fonts": [
+            {
+                "asset": "fonts/BreeSerif.ttf"
+            }
+        ]
+    },
+    {
+        "family": "AlfaSlabOne",
+        "fonts": [
+            {
+                "asset": "fonts/AlfaSlabOne.ttf"
+            }
+        ]
+    },
+    {
+        "family": "FeatherIcons",
+        "fonts": [
+            {
+                "asset": "fonts/FeatherIcons.ttf"
+            }
+        ]
     }
 ]

@@ -28,13 +28,13 @@ class PlaygroundPainter extends CustomPainter {
     var xoff = start;
     path.moveTo(0, p.perlinNoise(xoff, 0) * size.height);
 
-    for (double x = 0; x < size.width; x+=4) {
+    for (double x = 0; x < size.width; x += 4) {
       var y = map((p.perlinNoise(xoff, 0) * size.height), 0, size.height, 0,
           size.height * pi / 3);
       path.cubicTo(x * pi + y, y * pi / x, x * pi / 3, y * pi / 3, x, y);
       xoff += inc;
     }
-    canvas.skew(pi/180,0);
+    canvas.skew(pi / 180, 0);
     canvas.drawPath(path, paint);
     canvas.save();
     start += inc;

@@ -9,7 +9,7 @@ class ZigzagWrapper extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/zigzag.jpg'),
+          image: AssetImage('images/string/zigzag.jpg'),
           repeat: ImageRepeat.repeat,
           fit: BoxFit.contain,
           colorFilter: ColorFilter.mode(

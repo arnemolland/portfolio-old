@@ -2,9 +2,6 @@ import 'package:flutter_web/material.dart';
 import 'package:portfolio/apps/california/main.dart';
 import 'package:portfolio/apps/string/main.dart';
 import 'package:portfolio/containers/phone.dart';
-import 'package:portfolio/containers/state_container.dart';
-import 'package:portfolio/containers/wrapper.dart';
-import 'package:portfolio/painters/phone_painter.dart';
 
 class HeroView extends StatefulWidget {
   HeroView({Key key}) : super(key: key);
@@ -18,7 +15,7 @@ class _HeroViewState extends State<HeroView> {
   @override
   void initState() {
     super.initState();
-    _controller = PageController();
+    _controller = PageController(initialPage: 1);
   }
 
   @override

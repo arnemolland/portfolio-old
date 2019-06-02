@@ -9,7 +9,7 @@ class LightningWrapper extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/lightning.jpg'),
+          image: AssetImage('images/string/lightning.jpg'),
           repeat: ImageRepeat.repeat,
           fit: BoxFit.contain,
           colorFilter: ColorFilter.mode(

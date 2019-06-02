@@ -26,7 +26,7 @@ class Portfolio extends StatelessWidget {
         theme: AppStateContainer.of(context).state.isLightMode
             ? Molland.lightMode
             : Molland.darkMode,
-        initialRoute: Routes.loading,
+        initialRoute: Routes.home,
         routes: {
           Routes.home: (context) => Wrapper(),
           Routes.loading: (context) => LoadingView(),

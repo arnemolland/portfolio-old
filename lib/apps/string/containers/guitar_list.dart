@@ -17,12 +17,12 @@ class _GuitarListState extends State<GuitarList> {
     Guitar(
       brand: 'Fender',
       model: 'Telecaster Deluxe Rosewood',
-      image: 'images/guitars/telecaster.png',
+      image: 'images/string/telecaster.png',
     ),
     Guitar(
       brand: 'Fender',
       model: 'Parallel Universe Stratocaster',
-      image: 'images/guitars/stratocaster.png',
+      image: 'images/string/stratocaster.png',
       specs: Specs(
         finish: 'Lacquer/chrome',
         material: 'Maple',
@@ -37,7 +37,7 @@ class _GuitarListState extends State<GuitarList> {
     Guitar(
       brand: 'Gibson',
       model: 'Les Paul Standard 70\'s',
-      image: 'images/guitars/lespaul.png',
+      image: 'images/string/lespaul.png',
       specs: Specs(
         finish: 'Flamed Maple',
         fretboard: 'Rosewood',
@@ -52,7 +52,7 @@ class _GuitarListState extends State<GuitarList> {
     Guitar(
       brand: 'D\'Angelico',
       model: 'Deluxe Atlantic Natural',
-      image: 'images/guitars/dangelico.png',
+      image: 'images/string/dangelico.png',
       specs: Specs(
         material: 'Linden',
         finish: 'Mother of pearl & abalone split block',

@@ -9,6 +9,6 @@ class Guitar {
   Guitar({String brand, String model, String image, Specs specs})
       : this.brand = brand ?? 'Fender',
         this.model = model ?? 'Telecaster Deluxe Rosewood',
-        this.image = image ?? 'images/guitars/telecaster.png',
+        this.image = image ?? 'images/string/telecaster.png',
         this.specs = specs ?? Specs();
 }
