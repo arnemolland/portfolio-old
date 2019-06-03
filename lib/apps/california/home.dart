@@ -1,6 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/apps/california/data/data.dart';
-import 'package:portfolio/apps/california/overview.dart';
+import 'package:portfolio/apps/california/park.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({Key key}) : super(key: key);
@@ -11,7 +11,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Overview(
+    return ParkView(
       park: Data.yosemite,
     );
   }

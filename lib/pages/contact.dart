@@ -1,9 +1,7 @@
 import 'package:flutter_web/material.dart';
-import 'package:portfolio/containers/wrapper.dart';
 import 'package:portfolio/painters/perlin_terrain.dart';
 import 'package:portfolio/theme.dart';
 import 'dart:js' as js;
-import 'dart:html' as http;
 
 class ContactView extends StatefulWidget {
   ContactView({Key key}) : super(key: key);

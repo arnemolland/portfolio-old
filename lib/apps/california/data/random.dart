@@ -20,9 +20,11 @@ class Random {
     }
   }
 
-  get likes => _random.nextInt(10000);
+  get likes => _random.nextInt(600);
 
-  get rating => _random.nextDouble() * 5;
+  get rating => _random.nextDouble().clamp(0.5, 1.0) * 5;
 
   get image => 'https://picsum.photos/1000';
+
+  get time => '${_random.nextInt(24)}h ${_random.nextInt(60)}m';
 }

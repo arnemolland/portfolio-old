@@ -6,8 +6,9 @@ class InfinityTab extends StatefulWidget {
   final String unicode;
   final String label;
   final bool isSelected;
+  final BorderRadius radius;
 
-  InfinityTab({this.unicode, this.isSelected, this.label});
+  InfinityTab({this.unicode, this.isSelected, this.label, this.radius});
 
   @override
   _InfinityTabState createState() => _InfinityTabState();
@@ -20,14 +21,15 @@ class _InfinityTabState extends State<InfinityTab> {
         curve: Curves.easeInOut,
         duration: Duration(seconds: 1),
         decoration: BoxDecoration(
+          borderRadius: widget.radius,
           color: widget.isSelected ? Colors.blue : Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.4),
-              offset: Offset(50, 60),
-              blurRadius: 20,
-              spreadRadius: 10,
-            )
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(1.5, 2.5),
+              blurRadius: 5,
+              spreadRadius: 0,
+            ),
           ],
         ),
         child: Column(
@@ -50,9 +52,9 @@ class _InfinityTabState extends State<InfinityTab> {
                 widget.label.toUpperCase(),
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: Molland.adaptiveFontSize(context, 14, 12, 10),
+                    fontSize: Molland.adaptiveFontSize(context, 12, 10, 8),
                     height: 1.4,
-                    letterSpacing: 1.25),
+                    letterSpacing: 1.1),
               )
             }
           ],
