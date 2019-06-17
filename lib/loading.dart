@@ -24,6 +24,19 @@ class _LoadingViewState extends State<LoadingView>
     _controller =
         AnimationController(vsync: this, duration: const Duration(seconds: 2));
     _playAnimation();
+
+    // Hacky pre-caching
+    Image.asset('images/portrait.png');
+    Image.asset('images/spacex.png');
+    Image.asset('images/string/dangelico.png');
+    Image.asset('images/string/dots.png');
+    Image.asset('images/string/lespaul.png');
+    Image.asset('images/string/lightning.png');
+    Image.asset('images/string/stratocaster.png');
+    Image.asset('images/string/telecaster.png');
+    Image.asset('images/string/zigzag.png');
+    Image.asset('images/california/yosemite.png');
+    Image.asset('images/california/capitan.jpg');
   }
 
   @override

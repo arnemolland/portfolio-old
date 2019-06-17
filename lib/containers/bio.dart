@@ -30,7 +30,7 @@ class _BioViewState extends State<BioView> with TickerProviderStateMixin {
     'creative',
     'student',
     'creator',
-    'strategist',
+    'curator',
     'learner',
     'teacher',
     '☕️❤️',
@@ -101,7 +101,7 @@ class _BioViewState extends State<BioView> with TickerProviderStateMixin {
               style: labelStyle,
             ),
             Container(
-              width: Molland.adaptiveFontSize(context, 500, 350, 250),
+              width: Molland.adaptiveFontSize(context, 400, 200, 200),
               height: Molland.adaptiveFontSize(context, 64, 48, 42),
               child: PageView(
                 controller: _controller,

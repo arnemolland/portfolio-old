@@ -11,8 +11,13 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return ParkView(
-      park: Data.yosemite,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return ParkView(
+          park: Data.yosemite,
+          constraints: constraints,
+        );
+      },
     );
   }
 }

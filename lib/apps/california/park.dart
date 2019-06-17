@@ -16,8 +16,10 @@ enum MenuType { spots, hikes, lodges, cars }
 
 class ParkView extends StatefulWidget {
   final Park park;
+  final BoxConstraints constraints;
 
-  ParkView({@required this.park});
+  ParkView({@required this.park, @required this.constraints});
+
   @override
   _ParkViewState createState() => _ParkViewState();
 }
@@ -47,12 +49,18 @@ class _ParkViewState extends State<ParkView> with TickerProviderStateMixin {
     final Animation curve = CurvedAnimation(
         parent: _animationController, curve: Curves.easeInOutCubic);
     _animation = Tween<double>(begin: 1.5, end: 1.25).animate(curve);
-    _scrollAnimationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
-    _scrollAnimation =
-        Tween<double>(begin: 150, end: 350).animate(_scrollAnimationController);
-    _barAnimationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _scrollAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+    _scrollAnimation = Tween<double>(
+            begin: widget.constraints.maxHeight / 4,
+            end: widget.constraints.maxHeight / 1.5)
+        .animate(_scrollAnimationController);
+    _barAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
     _barAnimation =
         Tween<double>(begin: 0.05, end: -0.45).animate(_barAnimationController);
 
@@ -68,6 +76,15 @@ class _ParkViewState extends State<ParkView> with TickerProviderStateMixin {
     expanded = false;
     _currentTab = 5 ~/ 2;
     _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _animationController.dispose();
+    _barAnimationController.dispose();
+    _scrollAnimationController.dispose();
+    super.dispose();
   }
 
   @override
