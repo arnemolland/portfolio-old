@@ -194,5 +194,29 @@
                 "asset": "fonts/FeatherIcons.ttf"
             }
         ]
+    },
+    {
+        "family": "Margem",
+        "fonts": [
+            {
+                "asset": "fonts/Margem.otf"
+            }
+        ]
+    },
+    {
+        "family": "Copenhagen",
+        "fonts": [
+            {
+                "asset": "fonts/Copenhagen-Regular.otf"
+            },
+            {
+                "asset": "fonts/Copenhagen-Bold.otf",
+                "weight": 700
+            },
+            {
+                "asset": "fonts/Copenhagen-Light.otf",
+                "weight": 400
+            }
+        ]
     }
 ]
